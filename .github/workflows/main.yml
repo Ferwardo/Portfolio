@@ -1,0 +1,42 @@
+name: Deploy portfolio to site
+
+on: 
+  push:
+    branches: 
+      - main
+      
+jobs:
+  web-deploy:
+
+    name: Deploy Angular App
+    runs-on: ubuntu-latest
+
+    env:
+      SERVER: sinners.be
+
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2.3.2
+
+    - name: Use Node.js 14 LTS
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+      
+    - name: Install NPM Modules
+      run: npm install
+
+    - name: Build Project
+      run: ng build --prod
+    
+    - name: 📂 Sync Files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ${{ env.SERVER }}
+        username: ${{ secrets.SINNERS_USERNAME }}
+        password: ${{ secrets.SINNER_PASSWORD }}
+        port: 22
+        protocol: ftps
+        local-dir: ./dist/
+        server-dir: ./ferresnyers/public_html/
+#         dangerous-clean-slate: false

@@ -35,8 +35,6 @@ jobs:
         server: ${{ env.SERVER }}
         username: ${{ secrets.SINNERS_USERNAME }}
         password: ${{ secrets.SINNERS_PASSWORD }}
-        port: 22
-        protocol: ftps
-        local-dir: ./dist/
+        local-dir: ./dist/Portfolio
         server-dir: ./ferresnyers/public_html/
 #         dangerous-clean-slate: false

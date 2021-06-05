@@ -34,7 +34,7 @@ jobs:
       with:
         server: ${{ env.SERVER }}
         username: ${{ secrets.SINNERS_USERNAME }}
-        password: ${{ secrets.SINNER_PASSWORD }}
+        password: ${{ secrets.SINNERS_PASSWORD }}
         port: 22
         protocol: ftps
         local-dir: ./dist/

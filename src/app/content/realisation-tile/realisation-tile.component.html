@@ -1,0 +1,71 @@
+<div class="p-10">
+	<!-- card -->
+	<div class="group max-w-sm rounded overflow-hidden shadow-lg relative">
+		<div class="text-lg opacity-0 absolute xl:group-hover:opacity-100 xl:group-hover:filter-none
+		xl:group-hover:blur-0 xl:z-10 xl:h-full xl:w-full xl:flex xl:items-center xl:justify-center">
+			<button class="text-lg text-gray-400 border-gray-400 border-2 p-1 hover:text-gray-900 
+				hover:border-gray-800 hover:duration-200" (click)="modalShown=true">
+				Bekijk realitisatie
+			</button>
+		</div>
+		<img class="w-full xl:group-hover:filter xl:group-hover:blur-sm xl:group-hover:duration-100"
+			src="../../../assets/images/{{title}}.jpg" alt="{{title}}">
+		<div class="hidden sm:block px-6 py-4 xl:group-hover:filter xl:group-hover:blur-sm xl:group-hover:duration-100">
+			<div class="font-bold text-xl mb-2">{{title}}</div>
+			<p class="text-gray-700 text-base">
+				{{short}}
+			</p>
+		</div>
+
+		<div class="px-6 pt-4 pb-2 xl:group-hover:filter xl:group-hover:blur-sm xl:group-hover:duration-100">
+			<span *ngFor="let tag of tags"
+				class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{tag}}</span>
+		</div>
+		<button class="xl:hidden block no-underline hover:no-underline text-gray-800 hover:bg-gray-800 hover:text-white
+					w-max mx-auto border-2 my-8 font-title border-gray-800 py-1 px-3 transition duration-500" type="button"
+			(click)="modalShown=true">
+			Bekijk realisatie
+		</button>
+	</div>
+</div>
+
+
+<!-- modal -->
+<div *ngIf="modalShown"
+	class="overflow-x-hidden overflow-y-hidden fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+	<div class="relative w-auto mx-auto max-w-6xl h-5/6">
+		<!--content-->
+		<div class="border-0 shadow-lg relative flex flex-col w-full my-auto h-full bg-white outline-none 
+			focus:outline-none overflow-y-auto scrollbar scrollbar-thumb-gray-500 
+			scrollbar-thin scrollbar-track-transparent scrollbar-thumb-rounded-full container m-auto">
+			<!--header-->
+			<div class="p-5 mx-auto w-10/12 flex">
+				<h3 class="text-3xl font-semibold">
+					{{title}}
+				</h3>
+				<button class="p-1 ml-auto bg-transparent border-0 text-black text-3xl leading-none 
+					font-semibold outline-none focus:outline-none " (click)="modalShown=false">
+					<span
+						class="bg-transparent text-black opacity-50 hover:opacity-100 h-6 w-6 text-2xl block outline-none focus:outline-none">
+						×
+					</span>
+				</button>
+			</div>
+			<!--body-->
+			<div class="relative p-6 flex-auto">
+				<p class="my-4 text-lg leading-relaxed">
+					<ng-content>
+					</ng-content>
+				</p>
+			</div>
+			<div class="flex items-center justify-end pb-6">
+				<button class="block no-underline hover:no-underline text-gray-800 hover:bg-gray-800 hover:text-white
+					w-max mx-auto border-2 mt-8 font-title font-semibold border-gray-800 py-1 px-3 transition duration-500"
+					type="button" (click)="modalShown=false">
+					Sluiten
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="modalShown" (click)="modalShown=false" class="opacity-25 fixed inset-0 z-40 bg-black"></div>

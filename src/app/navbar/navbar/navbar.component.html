@@ -1,0 +1,75 @@
+<!-- <nav id='header' class="z-20 md:flex md:items-center md:justify-between p-4 pb-0 
+	 md:pb-4 font-title bg-transparent text-white fixed top-0 inset-x-0">
+	<div class="ml-auto">
+		<ul class="list-reset md:flex md:items-center">
+			<navbar-item [content]="'Home'" [link]="'/'" (click)="scrollTo('home')"></navbar-item>
+			<navbar-item [content]="'Wie ben ik'" [link]="'/whoami'" (click)="scrollTo('whoami')"></navbar-item>
+			<navbar-item [content]="'Stage'" [link]="'/internship'" (click)="scrollTo('internship')"></navbar-item>
+			<navbar-item [content]="'Realisaties'" [link]="'/realisations'" (click)="scrollTo('realisations')">
+			</navbar-item>
+		</ul>
+	</div>
+</nav> -->
+
+<nav id='header'
+	class="z-20 font-title md:bg-transparent bg-gray-600 shadow-lg md:shadow-none text-white fixed top-0 inset-x-0">
+	<div class="max-w-7xl mx-auto px-2 md:px-6 lg:px-8">
+		<div class="relative flex items-center justify-between h-16">
+			<div class="absolute inset-y-0 left-0 flex items-center md:hidden">
+				<button (click)="toggleMobileMenu()"
+					class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+					aria-controls="mobile-menu" aria-expanded="false">
+					<span class="sr-only">Open main menu</span>
+					<!-- <div class="btn">
+						<div class="icon-bar" [@hamburguerX]="isMobileMenuExpanded ? 'hamburguer' : 'topX'"></div>
+						<div class="icon-bar" [@hamburguerX]="isMobileMenuExpanded ? 'hamburguer' : 'hide'"></div>
+						<div class="icon-bar" [@hamburguerX]="isMobileMenuExpanded ? 'hamburguer' : 'bottomX'"></div>
+					</div> -->
+
+					<svg *ngIf="!isMobileMenuExpanded" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+						viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="square" stroke-linejoin="square" stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+
+					<svg *ngIf="isMobileMenuExpanded" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+						viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="square" stroke-linejoin="square" stroke-width="2"
+							d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+			<div class="flex-1 flex hidden md:flex items-center justify-center md:items-stretch md:justify-start">
+				<div class="hidden md:block md:ml-6">
+					<div class="flex space-x-4">
+						<ul class="list-reset md:flex md:items-center">
+							<navbar-item [content]="'Home'" [link]="'/'" (click)="scrollTo('home')"></navbar-item>
+							<navbar-item [content]="'Wie ben ik'" [link]="'/whoami'" (click)="scrollTo('whoami')">
+							</navbar-item>
+							<navbar-item [content]="'Stage'" [link]="'/internship'" (click)="scrollTo('internship')">
+							</navbar-item>
+							<navbar-item [content]="'Realisaties'" [link]="'/realisations'"
+								(click)="scrollTo('realisations')">
+							</navbar-item>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Mobile menu, show/hide based on menu state. -->
+	<div class="hidden md:hidden transition duration-500" id="mobile-menu">
+		<div class="px-2 pt-2 pb-3 space-y-1">
+			<ul class="list-reset md:flex md:items-center">
+				<navbar-item [content]="'Home'" [link]="'/'" (click)="scrollTo('home')"></navbar-item>
+				<navbar-item [content]="'Wie ben ik'" [link]="'/whoami'" (click)="scrollTo('whoami')">
+				</navbar-item>
+				<navbar-item [content]="'Stage'" [link]="'/internship'" (click)="scrollTo('internship')">
+				</navbar-item>
+				<navbar-item [content]="'Realisaties'" [link]="'/realisations'" (click)="scrollTo('realisations')">
+				</navbar-item>
+			</ul>
+		</div>
+	</div>
+</nav>

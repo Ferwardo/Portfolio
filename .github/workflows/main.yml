@@ -1,40 +1,40 @@
-name: Deploy portfolio to site
+# name: Deploy portfolio to site
 
-on: 
-  push:
-    branches: 
-      - main
+# on: 
+#   push:
+#     branches: 
+#       - main
       
-jobs:
-  web-deploy:
+# jobs:
+#   web-deploy:
 
-    name: Deploy Angular App
-    runs-on: ubuntu-latest
+#     name: Deploy Angular App
+#     runs-on: ubuntu-latest
 
-    env:
-      SERVER: sinners.be
+#     env:
+#       SERVER: sinners.be
 
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2.3.2
+#     steps:
+#     - name: 🚚 Get latest code
+#       uses: actions/checkout@v2.3.2
 
-    - name: Use Node.js 14 LTS
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+#     - name: Use Node.js 14 LTS
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '14'
       
-    - name: Install NPM Modules
-      run: npm install
+#     - name: Install NPM Modules
+#       run: npm install
 
-    - name: Build Project
-      run: npm run build
+#     - name: Build Project
+#       run: npm run build
     
-    - name: 📂 Sync Files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: ${{ env.SERVER }}
-        username: ${{ secrets.SINNERS_USERNAME }}
-        password: ${{ secrets.SINNERS_PASSWORD }}
-        local-dir: ./dist/Portfolio/
-        server-dir: ./ferresnyers/public_html/
-#         dangerous-clean-slate: false
+#     - name: 📂 Sync Files
+#       uses: SamKirkland/FTP-Deploy-Action@4.0.0
+#       with:
+#         server: ${{ env.SERVER }}
+#         username: ${{ secrets.SINNERS_USERNAME }}
+#         password: ${{ secrets.SINNERS_PASSWORD }}
+#         local-dir: ./dist/Portfolio/
+#         server-dir: ./ferresnyers/public_html/
+# #         dangerous-clean-slate: false
